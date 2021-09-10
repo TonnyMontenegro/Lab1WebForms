@@ -1,0 +1,126 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Lab1WebForms.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="Default.aspx">Laboratorio 1 en ASP.Net</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <asp:HyperLink href="Default.aspx" class="nav-link" runat="server" Text="Presentacion "></asp:HyperLink>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Estudiantes
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <asp:HyperLink href="RegStd.aspx" class="nav-link text-dark dropdown-item" runat="server" Text="Registro de datos y notas"></asp:HyperLink>
+
+                            <asp:HyperLink href="StaStd.aspx" class="nav-link text-dark dropdown-item" runat="server" Text="Estadisticas detalladas"></asp:HyperLink>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Trabajadores
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <asp:HyperLink href="RegWor.aspx" class="nav-link text-dark dropdown-item" runat="server" Text="Registro de datos"></asp:HyperLink>
+
+                            <asp:HyperLink href="StaWor.aspx" class="nav-link text-dark dropdown-item" runat="server" Text="Estadisticas detalladas"></asp:HyperLink>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- INYECCION ASP--->
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <!-- INYECCION ASP--->
+
+        <!-- Footer -->
+        <footer class="text-center text-lg-start bg-dark text-light">
+            <section class="d-flex justify-content-center justify-content-lg-between p-2 border-bottom">
+            </section>
+            <section class="">
+                <div class="container text-center text-md-start mt-5">
+                    <div class="row mt-3">
+                        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                            <h6 class="text fw-bold mb-4">Nic-<i class="fab fa-dev fa-lg" style="vertical-align: middle;"></i>Team
+                            </h6>
+                            <p>
+                                Equipo de desarollo multidiciplinario
+                            </p>
+                        </div>
+                        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                            <h6 class="text fw-bold mb-4">Repo
+                            </h6>
+                            <p>
+                                <asp:HyperLink href="#!" class="text-reset" runat="server" Text="Github "></asp:HyperLink><i class="fab fa-github"></i>
+                            </p>
+                        </div>
+                        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                            <h6 class="text fw-bold mb-4">Sistema #1
+                            </h6>
+                            <p>
+                                <asp:HyperLink href="RegStd.aspx" class="text-reset" runat="server" Text="Para estudiantes "></asp:HyperLink><i class="fas fa-user-graduate"></i>
+                            </p>
+                        </div>
+                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                            <h6 class="text fw-bold mb-4">Sistema #2
+                            </h6>
+                            <p>
+                                <asp:HyperLink href="RegWor" class="text-reset" runat="server" Text="Para trabajadores "></asp:HyperLink><i class="fas fa-user-tie"></i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+                © 2021 Web Designer Tonny and Johnmaster engine
+            </div>
+        </footer>
+        <!-- Footer -->
+    </form>
+    <script src="https://kit.fontawesome.com/c5b3d30ade.js"></script>
+</body>
+</html>

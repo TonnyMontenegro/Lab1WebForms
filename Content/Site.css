@@ -1,0 +1,57 @@
+﻿body {
+    background: #005AA7; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #FFFDE4, #005AA7); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #FFFDE4, #005AA7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-image: url('../pattern.jpg');
+    background-size: 25vh;
+    background-repeat: repeat;
+}
+
+.Mcard {
+    margin: 4%;
+    background: rgba(0, 0, 0, 0.87);
+}
+
+.form-row {
+    margin-bottom: 5%;
+}
+
+.col-sm {
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.jumbotron {
+    min-height: 60vh
+}
+
+
+.Badges {
+    padding: 55%;
+    padding-bottom: 55%;
+}
+
+.hidden {
+    display: none;
+}
+
+.button {
+    border: 2px solid #005AA7;
+    padding: 10px;
+    margin: 5px;
+    background: #ff0000;
+    color: #ffd800;
+    width: 75px;
+}
+
+.bg-Mcard {
+    background: #000000c2;
+}
+
+.bg-Scard {
+    background: #e5e5e5;
+}
+
+.card-img-top {
+    padding: 5%;
+}
