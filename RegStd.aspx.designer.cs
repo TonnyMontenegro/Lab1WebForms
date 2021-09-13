@@ -11,7 +11,7 @@ namespace Lab1WebForms
 {
 
 
-    public partial class StdReg
+    public partial class RegStd
     {
 
         /// <summary>

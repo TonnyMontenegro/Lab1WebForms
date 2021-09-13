@@ -12,12 +12,16 @@ namespace Lab1WebForms
 {
     public class Global : HttpApplication
     {
-        public static StudentList Students { get; set; }
+        //public static StudentList Students { get; set; }
+        public static SqLiteStudents Students { get; set; }
+        public static SqLiteEmployess Employess { get; set; }
 
         void Application_Start(object sender, EventArgs e)
         {
             //Código que se ejecuta al iniciar la aplicación
-            Students = new StudentList();
+            Students = new SqLiteStudents();
+            Employess = new SqLiteEmployess();
+
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }

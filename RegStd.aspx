@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Registro de estudiantes" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RegStd.aspx.cs" Inherits="Lab1WebForms.StdReg" %>
+﻿<%@ Page Title="Registro de estudiantes" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RegStd.aspx.cs" Inherits="Lab1WebForms.RegStd" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 

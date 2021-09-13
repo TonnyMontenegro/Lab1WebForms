@@ -10,7 +10,7 @@ namespace Lab1WebForms
 {
     public enum InputModes { REGISTER, UPDATE }
 
-    public partial class StdReg : System.Web.UI.Page
+    public partial class RegStd : System.Web.UI.Page
     {
         public static InputModes Action;
         public static string IDTarget { get; set; }
@@ -46,7 +46,7 @@ namespace Lab1WebForms
             else if (Action == InputModes.UPDATE)
             {
                 Update();
-                Response.Redirect("/StaStd");
+                Response.Redirect("/QueryStd");
             }
         }
 

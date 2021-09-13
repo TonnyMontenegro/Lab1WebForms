@@ -55,16 +55,16 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <asp:HyperLink href="RegStd.aspx" class="nav-link text-dark dropdown-item" runat="server" Text="Registro de datos y notas"></asp:HyperLink>
 
-                            <asp:HyperLink href="StaStd.aspx" class="nav-link text-dark dropdown-item" runat="server" Text="Estadisticas detalladas"></asp:HyperLink>
+                            <asp:HyperLink href="QueryStd.aspx" class="nav-link text-dark dropdown-item" runat="server" Text="Estadisticas detalladas"></asp:HyperLink>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Trabajadores
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <asp:HyperLink href="RegWor.aspx" class="nav-link text-dark dropdown-item" runat="server" Text="Registro de datos"></asp:HyperLink>
+                            <asp:HyperLink href="RegEmployee.aspx" class="nav-link text-dark dropdown-item" runat="server" Text="Registro de datos"></asp:HyperLink>
 
-                            <asp:HyperLink href="StaWor.aspx" class="nav-link text-dark dropdown-item" runat="server" Text="Estadisticas detalladas"></asp:HyperLink>
+                            <asp:HyperLink href="QueryEmployee.aspx" class="nav-link text-dark dropdown-item" runat="server" Text="Estadisticas detalladas"></asp:HyperLink>
                         </div>
                     </li>
                 </ul>

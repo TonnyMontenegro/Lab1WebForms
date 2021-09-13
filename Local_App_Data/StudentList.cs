@@ -4,6 +4,13 @@ using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
+
+// ****************************************************
+//  NO USAR ESTA CLASE
+//  Unicamente sirvió como modelo de local de pruebas
+//  Ya no es necesaria y puede eliminarse en un futuro
+// ****************************************************
+
 namespace Lab1WebForms.Local_App_Data
 {
     public class StudentList
@@ -15,7 +22,7 @@ namespace Lab1WebForms.Local_App_Data
         {
             Data = new List<Student>();
         }
-            
+
         public void Add(Student s)
         {
             if (Data.Exists(std => std.ID.Equals(s.ID)))
