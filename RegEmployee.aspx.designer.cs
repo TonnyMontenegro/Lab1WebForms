@@ -60,13 +60,13 @@ namespace Lab1WebForms
         protected global::System.Web.UI.WebControls.TextBox txt_Salary;
 
         /// <summary>
-        /// Control LabelStd.
+        /// Control img_container_worker.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelStd;
+        protected global::System.Web.UI.WebControls.Image img_container_worker;
 
         /// <summary>
         /// Control img_input.
@@ -76,15 +76,6 @@ namespace Lab1WebForms
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload img_input;
-
-        /// <summary>
-        /// Control img_container_worker.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image img_container_worker;
 
         /// <summary>
         /// Control btn_Submit.

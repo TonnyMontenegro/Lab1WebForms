@@ -216,6 +216,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="asp.net_.png" />
     <Content Include="Bootstrap.png" />
     <Content Include="Csharp.png" />
