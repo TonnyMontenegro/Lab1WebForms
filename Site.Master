@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 
+
 <html lang="es">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -11,13 +12,15 @@
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
-    </asp:PlaceHolder>
+    </asp:PlaceHolder>    
 
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
 <body>
+
+
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
