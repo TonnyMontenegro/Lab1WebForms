@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Web;
 
-
-// ****************************************************
-//  NO USAR ESTA CLASE
-//  Unicamente sirvió como modelo de local de pruebas
-//  Ya no es necesaria y puede eliminarse en un futuro
-// ****************************************************
 
 namespace Lab1WebForms.Local_App_Data
 {
+    // ****************************************************
+    //  NO USAR ESTA CLASE
+    //  Unicamente sirvió como modelo de local de pruebas
+    //  Ya no es necesaria y puede eliminarse en un futuro
+    // ****************************************************
+    [Obsolete]
     public class StudentList
     {
         public List<Student> Data { get; }

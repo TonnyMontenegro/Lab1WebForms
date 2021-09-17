@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace Lab1WebForms.Local_App_Data
 {
@@ -14,7 +11,6 @@ namespace Lab1WebForms.Local_App_Data
         public float IIP { get; set; }
         public float SIST { get; set; }
         public float NF { get; set; }
-        //public byte[] ProfilePicture { get; set; }
 
         public Student(string iD, string names, string surnames,
                        float iP, float iIP, float sIST)

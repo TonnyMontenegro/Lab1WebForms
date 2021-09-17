@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
+    <title> Laboratorio 1 ASP.NET </title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -56,18 +56,18 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Estudiantes
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <asp:HyperLink href="RegStd.aspx" class="nav-link text-dark dropdown-item" runat="server" Text="Registro de datos y notas"></asp:HyperLink>
+                            <asp:HyperLink href="/RegStd" class="nav-link text-dark dropdown-item" runat="server" Text="Registro de datos y notas"></asp:HyperLink>
 
-                            <asp:HyperLink href="QueryStd.aspx" class="nav-link text-dark dropdown-item" runat="server" Text="Estadisticas detalladas"></asp:HyperLink>
+                            <asp:HyperLink href="/QueryStd" class="nav-link text-dark dropdown-item" runat="server" Text="Consultar datos"></asp:HyperLink>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Trabajadores
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <asp:HyperLink href="RegEmployee.aspx" class="nav-link text-dark dropdown-item" runat="server" Text="Registro de datos"></asp:HyperLink>
+                            <asp:HyperLink href="/RegEmployee" class="nav-link text-dark dropdown-item" runat="server" Text="Registro de datos"></asp:HyperLink>
 
-                            <asp:HyperLink href="QueryEmployee.aspx" class="nav-link text-dark dropdown-item" runat="server" Text="Estadisticas detalladas"></asp:HyperLink>
+                            <asp:HyperLink href="/QueryEmployee" class="nav-link text-dark dropdown-item" runat="server" Text="Consultar datos"></asp:HyperLink>
                         </div>
                     </li>
                 </ul>
@@ -91,7 +91,7 @@
                             <h6 class="text fw-bold mb-4">Nic-<i class="fab fa-dev fa-lg" style="vertical-align: middle;"></i>Team
                             </h6>
                             <p>
-                                Equipo de desarollo multidiciplinario
+                                Equipo de desarrollo multidiciplinario
                             </p>
                         </div>
                         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">

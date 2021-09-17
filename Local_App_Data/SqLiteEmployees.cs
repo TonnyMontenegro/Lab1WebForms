@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace Lab1WebForms.Local_App_Data
 {
-    public class SqLiteEmployess
+    public class SqLiteEmployees
     {
-        public SqLiteEmployess()
+        public SqLiteEmployees()
         {
             CreateDb();
         }
@@ -25,6 +23,14 @@ namespace Lab1WebForms.Local_App_Data
             using (var dbContext = new EmployeesDbContext())
             {
                 return dbContext.EmployeeData.Count() == 0;
+            }
+        }
+
+        public bool Exists(string ID)
+        {
+            using (var dbContext = new EmployeesDbContext())
+            {
+                return dbContext.EmployeeData.Find(ID) != null;
             }
         }
 
@@ -72,31 +78,31 @@ namespace Lab1WebForms.Local_App_Data
             }
         }
 
+        public double SalaryAvg()
+        {
+            using (var dbContext = new EmployeesDbContext())
+            {
+                return dbContext.EmployeeData.Average(emp => emp.Salary);
+            }
+        }
+
         public bool IncreaseSalary(float percent)
         {
-            // Esto tampoco lo he probado así porque no hay .Foreach
-            // En teoria podría funcionar
-
             using (var dbContext = new EmployeesDbContext())
             {
                 double salaryAvg = dbContext.EmployeeData.Average(emp => emp.Salary);
-                for (int i=0; i<dbContext.EmployeeData.Count(); i++)
-                {
-                    dbContext.EmployeeData.ElementAt(i)
-                        .Salary *= ((dbContext.EmployeeData.ElementAt(i).Salary < salaryAvg)
-                                    ? (1 + (percent / 100)) : 1);
-                }
+
+                dbContext.EmployeeData.ToList().ForEach(emp =>
+                    emp.Salary *= (emp.Salary < salaryAvg) ? (1 + (percent / 100)) : 1);
                 return dbContext.SaveChanges() > 0;
             }
         }
 
-        public bool Sort()
+        public List<Employee> ToSortedList()
         {
-            // E igualmente tampoco he probado esto
             using (var dbContext = new EmployeesDbContext())
             {
-                dbContext.EmployeeData.OrderBy(e => e.Salary);
-                return dbContext.SaveChanges() > 0;
+                return dbContext.EmployeeData.OrderBy(e => e.Salary).ToList();
             }
         }
     }

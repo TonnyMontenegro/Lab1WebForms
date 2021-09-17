@@ -70,7 +70,7 @@
                 <img src="github.png" class="card-img-top" alt="GitHub logo">
                 <div class="card-body">
                     <h5 class="card-title">GitHub</h5>
-                    <p class="card-text">es un repositorio online gratuito que permite gestionar proyectos y controlar versiones de código remotamente, nos permite guardar copias,realizar colaboraciones y registrar cambios de manera ordenada.</p>
+                    <p class="card-text">Es un repositorio online gratuito que permite gestionar proyectos y controlar versiones de código remotamente, nos permite guardar copias,realizar colaboraciones y registrar cambios de manera ordenada.</p>
                 </div>
             </div>
 
@@ -100,7 +100,7 @@
                 <img src="VS.png" class="card-img-top" alt="VisualStudio logo">
                 <div class="card-body">
                     <h5 class="card-title">Visual Studio</h5>
-                    <p class="card-text">es un entorno de desarrollo integrado (IDE, por sus siglas en inglés) para Windows y macOS, nos permite desarollar una amplia gama de proyectos en una gran cantidad de lenguajes disponibles.</p>
+                    <p class="card-text">Es un entorno de desarrollo integrado (IDE, por sus siglas en inglés) para Windows y macOS, nos permite desarollar una amplia gama de proyectos en una gran cantidad de lenguajes disponibles.</p>
                 </div>
             </div>
         </div>

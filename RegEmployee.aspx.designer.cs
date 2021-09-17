@@ -15,22 +15,22 @@ namespace Lab1WebForms
     {
 
         /// <summary>
-        /// Control txt_Names.
+        /// Control panel_message.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Names;
+        protected global::System.Web.UI.WebControls.Panel panel_message;
 
         /// <summary>
-        /// Control txt_Surnames.
+        /// Control lbl_message.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Surnames;
+        protected global::System.Web.UI.WebControls.Label lbl_message;
 
         /// <summary>
         /// Control txt_ID.
@@ -42,6 +42,60 @@ namespace Lab1WebForms
         protected global::System.Web.UI.WebControls.TextBox txt_ID;
 
         /// <summary>
+        /// Control validator_id.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validator_id;
+
+        /// <summary>
+        /// Control validator_regex_id.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator validator_regex_id;
+
+        /// <summary>
+        /// Control txt_Names.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_Names;
+
+        /// <summary>
+        /// Control validator_names.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validator_names;
+
+        /// <summary>
+        /// Control txt_Surnames.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_Surnames;
+
+        /// <summary>
+        /// Control validator_snames.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validator_snames;
+
+        /// <summary>
         /// Control txt_Childs.
         /// </summary>
         /// <remarks>
@@ -51,6 +105,15 @@ namespace Lab1WebForms
         protected global::System.Web.UI.WebControls.TextBox txt_Childs;
 
         /// <summary>
+        /// Control validator_range_childs.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator validator_range_childs;
+
+        /// <summary>
         /// Control txt_Salary.
         /// </summary>
         /// <remarks>
@@ -58,6 +121,15 @@ namespace Lab1WebForms
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_Salary;
+
+        /// <summary>
+        /// Control validator_range_sal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator validator_range_sal;
 
         /// <summary>
         /// Control img_container_worker.
@@ -78,6 +150,24 @@ namespace Lab1WebForms
         protected global::System.Web.UI.WebControls.FileUpload img_input;
 
         /// <summary>
+        /// Control img_label.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label img_label;
+
+        /// <summary>
+        /// Control lbl_invalid.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_invalid;
+
+        /// <summary>
         /// Control btn_Submit.
         /// </summary>
         /// <remarks>
@@ -85,5 +175,14 @@ namespace Lab1WebForms
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_Submit;
+
+        /// <summary>
+        /// Control btnUpload.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpload;
     }
 }

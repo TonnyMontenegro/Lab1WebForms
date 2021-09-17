@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Optimization;
 using System.Web.Routing;
-using System.Web.Security;
-using System.Web.SessionState;
 using Lab1WebForms.Local_App_Data;
 
 namespace Lab1WebForms
@@ -14,13 +10,13 @@ namespace Lab1WebForms
     {
         //public static StudentList Students { get; set; }
         public static SqLiteStudents Students { get; set; }
-        public static SqLiteEmployess Employess { get; set; }
+        public static SqLiteEmployees Employees { get; set; }
 
         void Application_Start(object sender, EventArgs e)
         {
             //Código que se ejecuta al iniciar la aplicación
             Students = new SqLiteStudents();
-            Employess = new SqLiteEmployess();
+            Employees = new SqLiteEmployees();
 
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);

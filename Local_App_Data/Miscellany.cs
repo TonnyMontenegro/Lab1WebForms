@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Web;
 using System.IO;
 
@@ -9,32 +8,20 @@ namespace Lab1WebForms.Local_App_Data
 {
     public static class Miscellany
     {
-        /*public static byte[] ToByteArray(Stream input)
+        private static readonly string EmployeeIconPath =
+            HttpContext.Current.Server.MapPath("~/App_Data/EmployeeIcon.png");
+
+        public static string B64EmployeeIcon
         {
-            using (var content = new MemoryStream())
-            {
-                input.CopyTo(content);
-                return content.ToArray();
-            }
+            get { return ToBase64(EmployeIconData); }
         }
 
-        public static Image ToImage(byte[] binaryPicture)
+        public static byte[] EmployeIconData
         {
-            try
-            {
-                using (var ms = new MemoryStream(binaryPicture))
-                {
-                    return Image.FromStream(ms);
-                }
-            }
-            catch (ArgumentException e)
-            {
-                Console.Write(e.Message);
-                return null;
-            }
-        }*/
+            get { return File.ReadAllBytes(EmployeeIconPath); }
+        }
 
-        public static string ToBase64String(byte[] binaryPicture)
+        public static string ToBase64(byte[] binaryPicture)
         {
             return "data:image/jpg;base64," + Convert.ToBase64String(binaryPicture);
         }

@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace Lab1WebForms.Local_App_Data
 {
@@ -28,6 +26,14 @@ namespace Lab1WebForms.Local_App_Data
             }
         }
 
+        public bool Exists(string ID)
+        {
+            using (var dbContext = new StudentsDbContext())
+            {
+                return dbContext.StudentData.Find(ID) != null;
+            }
+        }
+        
         public List<Student> GetData()
         {
             using (var dbContext = new StudentsDbContext())
@@ -95,12 +101,11 @@ namespace Lab1WebForms.Local_App_Data
             }
         }
 
-        public bool Sort()
+        public List<Student> ToSortedList()
         {
             using (var dbContext = new StudentsDbContext())
             {
-                dbContext.StudentData.OrderBy(s => s.NF);
-                return dbContext.SaveChanges() > 0;
+                return dbContext.StudentData.OrderBy(s => s.NF).ToList();
             }
         }
     }

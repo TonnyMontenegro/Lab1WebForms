@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using Lab1WebForms.Local_App_Data;
 
 namespace Lab1WebForms
@@ -12,24 +8,37 @@ namespace Lab1WebForms
     {
         public static InputModes Action;
         public static string IDTarget { get; set; }
+        private static byte[] swap;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Intento de solucionar #4, funciona parcialmente
+            if (!IsPostBack &&
+               AppRelativeVirtualPath.Contains(Request.UrlReferrer?.AbsolutePath ?? string.Empty))
+            {
+                Action = InputModes.REGISTER;
+            }
+
+            // Empieza con la imagen por defecto
+            if (!IsPostBack)
+            {
+                img_container_worker.ImageUrl = Miscellany.B64EmployeeIcon;
+            }
+
             if (Action == InputModes.UPDATE && !IsPostBack)
             {
-                Employee emp = Global.Employess.Get(IDTarget);
+                Employee emp = Global.Employees.Get(IDTarget);
                 txt_ID.Text = emp.DNI;
                 txt_Names.Text = emp.Names;
                 txt_Surnames.Text = emp.Surnames;
                 txt_Childs.Text = emp.ChildCount.ToString();
-                txt_Salary.Text = emp.Salary.ToString("C2");
+                txt_Salary.Text = emp.Salary.ToString("F2");
                 txt_ID.Enabled = txt_Names.Enabled = txt_Surnames.Enabled
-                    = txt_Childs.Enabled = img_input.Enabled = false;
-
-                img_container_worker.ImageUrl = Miscellany.ToBase64String(emp.ProfilePicture) ?? "";
+                    = txt_Childs.Enabled = img_input.Enabled = img_label.Visible = false;
+                
+                img_container_worker.ImageUrl = Miscellany.ToBase64(emp.ProfilePicture);
                 btn_Submit.Text = "Modificar";
             }
-
         }
 
         private void ClearFields()
@@ -55,16 +64,27 @@ namespace Lab1WebForms
         {
             try
             {
-                Employee e = new Employee(
-                    txt_ID.Text, txt_Names.Text, txt_Surnames.Text,
-                    int.Parse(txt_Childs.Text), double.Parse(txt_Salary.Text));
-
-                if (img_input.HasFile)
+                if (Global.Employees.Exists(txt_ID.Text))
                 {
-                    e.ProfilePicture = img_input.FileBytes;
+                    Notify(valid: false,
+                        "Ya existe un empleado con cédula " + txt_ID.Text);
+                    return;
                 }
 
-                Global.Employess.Add(e);
+                Employee e = new Employee(
+                    txt_ID.Text, txt_Names.Text, txt_Surnames.Text,
+                    (string.IsNullOrEmpty(txt_Childs.Text) ? 0 : int.Parse(txt_Childs.Text)),
+                    double.Parse(txt_Salary.Text))
+                {
+                    ProfilePicture = swap ?? Miscellany.EmployeIconData
+                };
+                Global.Employees.Add(e);
+
+                Notify(valid: true,
+                    $"Se ha registrado a {txt_Names.Text} {txt_Surnames.Text} ({txt_ID.Text})");
+
+                // Restaura la imagen por defecto
+                img_container_worker.ImageUrl = Miscellany.B64EmployeeIcon;
                 ClearFields();
             }
             catch (Exception) { }
@@ -74,10 +94,43 @@ namespace Lab1WebForms
         {
             try
             {
-                Global.Employess.UpdateSalary(txt_ID.Text, double.Parse(txt_Salary.Text));
+                Global.Employees.UpdateSalary(txt_ID.Text, double.Parse(txt_Salary.Text));
+                // TODO por si llegamos a necesitar actualizar la foto de perfil
                 Action = InputModes.REGISTER;
             }
             catch (Exception) { }
+        }
+
+        protected void Upload(object sender, EventArgs e)
+        {
+            string[] typeFilters = new string[] { ".jpg", ".jpeg", ".png", ".bmp", ".webp", ".tiff", ".gif" };
+            img_label.Text = img_input.FileName;
+
+            foreach (var type in typeFilters)
+            {
+                if (img_input.FileName.EndsWith(type))
+                {
+                    swap = img_input.FileBytes;
+                    img_container_worker.ImageUrl = Miscellany.ToBase64(swap);
+                    lbl_invalid.Visible = false;
+                    return;
+                }
+            }
+            swap = null;
+            img_container_worker.ImageUrl = string.Empty;
+            lbl_invalid.Visible = true;
+            return;
+        }
+
+        private void Notify(bool valid, string message)
+        {
+            panel_message.Visible = true;
+            if (valid)
+                panel_message.BorderColor = lbl_message.ForeColor = System.Drawing.Color.FromArgb(44, 186, 32);
+            else
+                panel_message.BorderColor = lbl_message.ForeColor = System.Drawing.Color.Red;
+
+            lbl_message.Text = message;
         }
     }
 }

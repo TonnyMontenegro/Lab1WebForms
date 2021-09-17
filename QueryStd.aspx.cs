@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Lab1WebForms
 {
@@ -28,21 +23,27 @@ namespace Lab1WebForms
                 gvw_StudentData.DataSource = Global.Students.GetData();
                 gvw_StudentData.DataBind();
 
-                lbl_GlobalAvg.Text = "Promedio Global:\t" + Global.Students.GlobalAvg().ToString("N2") + " %";
-                lbl_BestStd.Text = "Mejor estudiante:\t" + Global.Students.Best().ToString();
+                lbl_GlobalAvg.Text = "Promedio Global:&emsp;&emsp;" + Global.Students.GlobalAvg().ToString("N2") + " %";
+                lbl_BestStd.Text = "Mejor estudiante:&emsp;&emsp;" + Global.Students.Best().ToString();
+
+                panel_Avg.Visible = panel_Best.Visible = true;
+                panel_warning.Visible = false;
             }
             else
             {
-                lbl_BestStd.Text = lbl_GlobalAvg.Text = string.Empty;
+                txt_ID.Visible = panel_Avg.Visible = panel_Best.Visible = btn_Search.Visible
+                    = btn_Delete.Visible = btn_Modify.Visible = btn_Sort.Visible = false;
+                panel_warning.Visible = true;
             }
         }
 
         protected void BtnSearch_Click(object sender, EventArgs e)
         {
+            if (!validator_id_exists.IsValid || string.IsNullOrEmpty(txt_ID.Text)) return;
             try
             {
                 gvw_StudentData.DataSource = null;
-                gvw_StudentData.DataSource = Global.Students.Get(txt_ID.Text).AsSource();
+                gvw_StudentData.DataSource = Global.Students.Get(txt_ID.Text)?.AsSource();
                 gvw_StudentData.DataBind();
 
                 txt_ID.Text = string.Empty;
@@ -53,6 +54,8 @@ namespace Lab1WebForms
 
         protected void BtnModify_Click(object sender, EventArgs e)
         {
+            if (!validator_id_exists.IsValid || string.IsNullOrEmpty(txt_ID.Text)) return;
+
             RegStd.Action = InputModes.UPDATE;
             RegStd.IDTarget = txt_ID.Text;
             Response.Redirect("/RegStd");
@@ -60,6 +63,7 @@ namespace Lab1WebForms
 
         protected void BtnDelete_Click(object sender, EventArgs e)
         {
+            if (!validator_id_exists.IsValid || string.IsNullOrEmpty(txt_ID.Text)) return;
             try
             {
                 Global.Students.Delete(txt_ID.Text);
@@ -71,12 +75,25 @@ namespace Lab1WebForms
 
         protected void BtnSort_Click(object sender, EventArgs e)
         {
-            Global.Students.Sort();
+            // Evita que se muestre el mensaje aunque haya algo erróneo escrito
+            validator_id_exists.IsValid = true;
+            gvw_StudentData.DataSource = null;
+            gvw_StudentData.DataSource = Global.Students.ToSortedList();
+            gvw_StudentData.DataBind();
+
+            lbl_NoData.Text = "Esta visualización no se encuentra aplicada en el registro";
+            btn_RestoreTable.Visible = panel_warning.Visible = true;
         }
 
         protected void BtnRestore_Click(object sende, EventArgs e)
         {
+            validator_id_exists.IsValid = true;
             RefreshData();
+        }
+
+        protected void IDValidation(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
+        {
+            args.IsValid = Global.Students.Exists(args.Value);
         }
     }
 }

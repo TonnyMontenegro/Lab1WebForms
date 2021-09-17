@@ -176,6 +176,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -217,6 +218,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="App_Data\EmployeeIcon.png" />
     <Content Include="asp.net_.png" />
     <Content Include="Bootstrap.png" />
     <Content Include="Csharp.png" />
@@ -382,7 +384,7 @@
     <Compile Include="Local_App_Data\Employee.cs" />
     <Compile Include="Local_App_Data\EmployeesDbContext.cs" />
     <Compile Include="Local_App_Data\Miscellany.cs" />
-    <Compile Include="Local_App_Data\SqLiteEmployess.cs" />
+    <Compile Include="Local_App_Data\SqLiteEmployees.cs" />
     <Compile Include="Local_App_Data\SqLiteStudents.cs" />
     <Compile Include="Local_App_Data\StudentsDbContext.cs" />
     <Compile Include="RegStd.aspx.cs">
@@ -451,7 +453,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Browsers\" />
-    <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
