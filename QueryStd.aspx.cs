@@ -81,7 +81,7 @@ namespace Lab1WebForms
             gvw_StudentData.DataSource = Global.Students.ToSortedList();
             gvw_StudentData.DataBind();
 
-            lbl_NoData.Text = "Esta visualización no se encuentra aplicada en el registro";
+            lbl_Warning.Text = "Esta visualización no se encuentra aplicada en el registro";
             btn_RestoreTable.Visible = panel_warning.Visible = true;
         }
 

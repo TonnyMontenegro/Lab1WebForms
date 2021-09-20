@@ -15,6 +15,15 @@ namespace Lab1WebForms
     {
 
         /// <summary>
+        /// Control up_id_exists.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel up_id_exists;
+
+        /// <summary>
         /// Control txt_ID.
         /// </summary>
         /// <remarks>
@@ -78,6 +87,15 @@ namespace Lab1WebForms
         protected global::System.Web.UI.WebControls.Button btn_Sort;
 
         /// <summary>
+        /// Control up_DataArea.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel up_DataArea;
+
+        /// <summary>
         /// Control btn_RestoreTable.
         /// </summary>
         /// <remarks>
@@ -132,6 +150,15 @@ namespace Lab1WebForms
         protected global::System.Web.UI.WebControls.GridView gvw_StudentData;
 
         /// <summary>
+        /// Control up_WarningMessage.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel up_WarningMessage;
+
+        /// <summary>
         /// Control panel_warning.
         /// </summary>
         /// <remarks>
@@ -141,12 +168,12 @@ namespace Lab1WebForms
         protected global::System.Web.UI.WebControls.Panel panel_warning;
 
         /// <summary>
-        /// Control lbl_NoData.
+        /// Control lbl_Warning.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_NoData;
+        protected global::System.Web.UI.WebControls.Label lbl_Warning;
     }
 }
