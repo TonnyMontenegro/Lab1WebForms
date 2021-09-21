@@ -11,7 +11,7 @@
                     <asp:UpdatePanel ID="up_id_exists" runat="server">
                         <ContentTemplate>
                             <asp:TextBox ID="txt_ID" runat="server" CssClass="form-control" placeholder="2021-0007F" />
-                            <%-- Validador --%>
+                            <%-- Validadores --%>
                             <asp:RegularExpressionValidator ID="validador_regex_id" runat="server"
                                 ForeColor="Yellow" ErrorMessage="El carnet no es válido" ControlToValidate="txt_ID"
                                 ValidationExpression="20[0-2][0-9]-[0-9]{4}[A-Z]" />
