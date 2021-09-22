@@ -12,13 +12,6 @@ namespace Lab1WebForms
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Intento de solucionar #3, funciona parcialmente
-            if (!IsPostBack &&
-               AppRelativeVirtualPath.Contains(Request.UrlReferrer?.AbsolutePath ?? string.Empty))
-            {
-                Action = InputModes.REGISTER;
-            }
-
             if (Action == InputModes.UPDATE && !IsPostBack)
             {
                 Student s = Global.Students.Get(IDTarget);
@@ -29,7 +22,9 @@ namespace Lab1WebForms
                 txt_IIP.Text = s.IIP.ToString("F2");
                 txt_SIST.Text = s.SIST.ToString("F2");
                 txt_ID.Enabled = txt_Names.Enabled = txt_Surnames.Enabled = false;
+
                 btn_Submit.Text = "Modificar";
+                btn_Cancel.Visible = true;
             }
         }
 
@@ -50,6 +45,12 @@ namespace Lab1WebForms
                 Update();
                 Response.Redirect("/QueryStd");
             }
+        }
+
+        protected void Btn_Cancel_Click(object sender, EventArgs e)
+        {
+            Action = InputModes.REGISTER;
+            Response.Redirect(Request.RawUrl);
         }
 
         private void Register()

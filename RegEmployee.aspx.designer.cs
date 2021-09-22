@@ -132,31 +132,13 @@ namespace Lab1WebForms
         protected global::System.Web.UI.WebControls.RangeValidator validator_range_sal;
 
         /// <summary>
-        /// Control img_container_worker.
+        /// Control validator_salary.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image img_container_worker;
-
-        /// <summary>
-        /// Control img_input.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload img_input;
-
-        /// <summary>
-        /// Control img_label.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label img_label;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validator_salary;
 
         /// <summary>
         /// Control lbl_invalid.
@@ -177,12 +159,12 @@ namespace Lab1WebForms
         protected global::System.Web.UI.WebControls.Button btn_Submit;
 
         /// <summary>
-        /// Control btnUpload.
+        /// Control btn_Cancel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpload;
+        protected global::System.Web.UI.WebControls.Button btn_Cancel;
     }
 }

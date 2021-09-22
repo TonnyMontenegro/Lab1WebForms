@@ -8,22 +8,12 @@ namespace Lab1WebForms
     {
         public static InputModes Action;
         public static string IDTarget { get; set; }
-        private static byte[] swap;
+        public string ImgSwap { get; set; }
 
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Init(object sender, EventArgs e)
         {
-            // Intento de solucionar #4, funciona parcialmente
-            if (!IsPostBack &&
-               AppRelativeVirtualPath.Contains(Request.UrlReferrer?.AbsolutePath ?? string.Empty))
-            {
-                Action = InputModes.REGISTER;
-            }
-
-            // Empieza con la imagen por defecto
-            if (!IsPostBack)
-            {
-                img_container_worker.ImageUrl = Miscellany.B64EmployeeIcon;
-            }
+            // Permite la comunicacion con el fileinput
+            Form.Enctype = "multipart/form-data";
 
             if (Action == InputModes.UPDATE && !IsPostBack)
             {
@@ -33,12 +23,20 @@ namespace Lab1WebForms
                 txt_Surnames.Text = emp.Surnames;
                 txt_Childs.Text = emp.ChildCount.ToString();
                 txt_Salary.Text = emp.Salary.ToString("F2");
-                txt_ID.Enabled = txt_Names.Enabled = txt_Surnames.Enabled
-                    = txt_Childs.Enabled = img_input.Enabled = img_label.Visible = false;
-                
-                img_container_worker.ImageUrl = Miscellany.ToBase64(emp.ProfilePicture);
+                txt_ID.Enabled = txt_Names.Enabled
+                    = txt_Surnames.Enabled = txt_Childs.Enabled =  false;
+
+                ImgSwap = Miscellany.ToBase64(emp.ProfilePicture);
                 btn_Submit.Text = "Modificar";
+                btn_Cancel.Visible = true;
+            }else
+            {
+                ImgSwap = Miscellany.B64EmployeeIcon;
             }
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
         }
 
         private void ClearFields()
@@ -60,6 +58,12 @@ namespace Lab1WebForms
             }
         }
 
+        protected void Btn_Cancel_Click(object sender, EventArgs e)
+        {
+            Action = InputModes.REGISTER;
+            Response.Redirect(Request.RawUrl);
+        }
+
         private void Register()
         {
             try
@@ -70,24 +74,27 @@ namespace Lab1WebForms
                         "Ya existe un empleado con cédula " + txt_ID.Text);
                     return;
                 }
+                var imageFile = (Request.Files.Count == 0) ? null : Request.Files[0];
 
                 Employee e = new Employee(
                     txt_ID.Text, txt_Names.Text, txt_Surnames.Text,
                     (string.IsNullOrEmpty(txt_Childs.Text) ? 0 : int.Parse(txt_Childs.Text)),
                     double.Parse(txt_Salary.Text))
                 {
-                    ProfilePicture = swap ?? Miscellany.EmployeIconData
+                    ProfilePicture = (string.IsNullOrEmpty(imageFile?.FileName ?? string.Empty)) ?
+                        Miscellany.EmployeIconData : Miscellany.ToByteArray(imageFile.InputStream)
                 };
                 Global.Employees.Add(e);
 
                 Notify(valid: true,
                     $"Se ha registrado a {txt_Names.Text} {txt_Surnames.Text} ({txt_ID.Text})");
 
-                // Restaura la imagen por defecto
-                img_container_worker.ImageUrl = Miscellany.B64EmployeeIcon;
                 ClearFields();
             }
-            catch (Exception) { }
+            catch (Exception)
+            {
+                Notify(valid: false, "Ha ocurrido un error desconocido");
+            }
         }
 
         private void Update()
@@ -99,27 +106,6 @@ namespace Lab1WebForms
                 Action = InputModes.REGISTER;
             }
             catch (Exception) { }
-        }
-
-        protected void Upload(object sender, EventArgs e)
-        {
-            string[] typeFilters = new string[] { ".jpg", ".jpeg", ".png", ".bmp", ".webp", ".tiff", ".gif" };
-            img_label.Text = img_input.FileName;
-
-            foreach (var type in typeFilters)
-            {
-                if (img_input.FileName.EndsWith(type))
-                {
-                    swap = img_input.FileBytes;
-                    img_container_worker.ImageUrl = Miscellany.ToBase64(swap);
-                    lbl_invalid.Visible = false;
-                    return;
-                }
-            }
-            swap = null;
-            img_container_worker.ImageUrl = string.Empty;
-            lbl_invalid.Visible = true;
-            return;
         }
 
         private void Notify(bool valid, string message)

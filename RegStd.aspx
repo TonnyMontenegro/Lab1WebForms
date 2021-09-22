@@ -75,14 +75,10 @@
 
             <div>
                 <asp:Button type="button" ID="btn_Submit" runat="server"
-                    Text="Registrar Estudiante" 
-                    CssClass="btn btn-primary btn-lg"
-                    OnClick="Btn_Submit_Click">
-                </asp:Button>
+                    Text="Registrar Estudiante"  CssClass="btn btn-primary btn-lg" OnClick="Btn_Submit_Click" />
+                <asp:Button ID="btn_Cancel" runat="server" Text="Cancelar" Visible="false"
+                    CssClass="btn btn-danger btn-lg" Style="margin-left: 5vw" OnClick="Btn_Cancel_Click" />
             </div>
-
         </div>
-
     </div>
-
 </asp:Content>

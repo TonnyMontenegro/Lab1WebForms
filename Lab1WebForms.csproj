@@ -218,7 +218,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
-    <Content Include="App_Data\EmployeeIcon.png" />
+    <Content Include="images\EmployeeIcon.png" />
     <Content Include="asp.net_.png" />
     <Content Include="Bootstrap.png" />
     <Content Include="Csharp.png" />
@@ -453,6 +453,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Browsers\" />
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
